@@ -1,0 +1,27 @@
+[2022-02-01 09:14:32,637] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: gcp_ingest_yellow_taxi.download_dataset_task scheduled__2019-01-02T05:00:00+00:00 [queued]>
+[2022-02-01 09:14:32,649] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: gcp_ingest_yellow_taxi.download_dataset_task scheduled__2019-01-02T05:00:00+00:00 [queued]>
+[2022-02-01 09:14:32,650] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 09:14:32,650] {taskinstance.py:1239} INFO - Starting attempt 2 of 2
+[2022-02-01 09:14:32,651] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 09:14:32,666] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): download_dataset_task> on 2019-01-02 05:00:00+00:00
+[2022-02-01 09:14:32,673] {standard_task_runner.py:52} INFO - Started process 6969 to run task
+[2022-02-01 09:14:32,678] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'gcp_ingest_yellow_taxi', 'download_dataset_task', 'scheduled__2019-01-02T05:00:00+00:00', '--job-id', '555', '--raw', '--subdir', 'DAGS_FOLDER/dag_***_gcp_yellow_taxi.py', '--cfg-path', '/tmp/tmpbklyettc', '--error-file', '/tmp/tmpq43fiz0m']
+[2022-02-01 09:14:32,679] {standard_task_runner.py:77} INFO - Job 555: Subtask download_dataset_task
+[2022-02-01 09:14:32,739] {logging_mixin.py:109} INFO - Running <TaskInstance: gcp_ingest_yellow_taxi.download_dataset_task scheduled__2019-01-02T05:00:00+00:00 [running]> on host 78d49910abc7
+[2022-02-01 09:14:32,785] {logging_mixin.py:109} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:152 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2022-02-01 09:14:32,806] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=gcp_ingest_yellow_taxi
+AIRFLOW_CTX_TASK_ID=download_dataset_task
+AIRFLOW_CTX_EXECUTION_DATE=2019-01-02T05:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2019-01-02T05:00:00+00:00
+[2022-02-01 09:14:32,808] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-02-01 09:14:32,810] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'curl -sSLf https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2019-01.csv > /opt/***/yellow_taxi_output_2019-01.csv']
+[2022-02-01 09:14:32,823] {subprocess.py:85} INFO - Output:
+[2022-02-01 09:28:42,927] {subprocess.py:93} INFO - Command exited with return code 0
+[2022-02-01 09:28:43,050] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=gcp_ingest_yellow_taxi, task_id=download_dataset_task, execution_date=20190102T050000, start_date=20220201T091432, end_date=20220201T092843
+[2022-02-01 09:28:43,154] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-02-01 09:28:43,216] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

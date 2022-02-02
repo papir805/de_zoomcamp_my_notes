@@ -1,0 +1,64 @@
+[2022-02-01 09:29:36,395] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: gcp_ingest_yellow_taxi.download_dataset_task scheduled__2019-03-02T05:00:00+00:00 [queued]>
+[2022-02-01 09:29:36,407] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: gcp_ingest_yellow_taxi.download_dataset_task scheduled__2019-03-02T05:00:00+00:00 [queued]>
+[2022-02-01 09:29:36,407] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 09:29:36,408] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-02-01 09:29:36,409] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 09:29:36,420] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): download_dataset_task> on 2019-03-02 05:00:00+00:00
+[2022-02-01 09:29:36,427] {standard_task_runner.py:52} INFO - Started process 8520 to run task
+[2022-02-01 09:29:36,435] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'gcp_ingest_yellow_taxi', 'download_dataset_task', 'scheduled__2019-03-02T05:00:00+00:00', '--job-id', '560', '--raw', '--subdir', 'DAGS_FOLDER/dag_***_gcp_yellow_taxi.py', '--cfg-path', '/tmp/tmppeoe4_t_', '--error-file', '/tmp/tmp4n32zpsh']
+[2022-02-01 09:29:36,436] {standard_task_runner.py:77} INFO - Job 560: Subtask download_dataset_task
+[2022-02-01 09:29:36,510] {logging_mixin.py:109} INFO - Running <TaskInstance: gcp_ingest_yellow_taxi.download_dataset_task scheduled__2019-03-02T05:00:00+00:00 [running]> on host 78d49910abc7
+[2022-02-01 09:29:36,559] {logging_mixin.py:109} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:152 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2022-02-01 09:29:36,577] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=gcp_ingest_yellow_taxi
+AIRFLOW_CTX_TASK_ID=download_dataset_task
+AIRFLOW_CTX_EXECUTION_DATE=2019-03-02T05:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2019-03-02T05:00:00+00:00
+[2022-02-01 09:29:36,579] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-02-01 09:29:36,581] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'curl -sSLf https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2019-03.csv > /opt/***/yellow_taxi_output_2019-03.csv']
+[2022-02-01 09:29:36,594] {subprocess.py:85} INFO - Output:
+[2022-02-01 09:33:10,522] {subprocess.py:89} INFO - curl: (56) OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 104
+[2022-02-01 09:33:10,527] {subprocess.py:93} INFO - Command exited with return code 56
+[2022-02-01 09:33:10,553] {taskinstance.py:1700} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 188, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 56.
+[2022-02-01 09:33:10,564] {taskinstance.py:1277} INFO - Marking task as FAILED. dag_id=gcp_ingest_yellow_taxi, task_id=download_dataset_task, execution_date=20190302T050000, start_date=20220201T092936, end_date=20220201T093310
+[2022-02-01 09:33:10,582] {standard_task_runner.py:92} ERROR - Failed to execute job 560 for task download_dataset_task
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 188, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 56.
+[2022-02-01 09:33:10,636] {local_task_job.py:154} INFO - Task exited with return code 1
+[2022-02-01 09:33:10,684] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

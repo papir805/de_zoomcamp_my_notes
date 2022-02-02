@@ -1,0 +1,27 @@
+[2022-02-01 09:14:28,210] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: gcp_ingest_yellow_taxi.remove_old_files_task scheduled__2019-02-02T05:00:00+00:00 [queued]>
+[2022-02-01 09:14:28,224] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: gcp_ingest_yellow_taxi.remove_old_files_task scheduled__2019-02-02T05:00:00+00:00 [queued]>
+[2022-02-01 09:14:28,228] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 09:14:28,228] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-02-01 09:14:28,229] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 09:14:28,242] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): remove_old_files_task> on 2019-02-02 05:00:00+00:00
+[2022-02-01 09:14:28,251] {standard_task_runner.py:52} INFO - Started process 6962 to run task
+[2022-02-01 09:14:28,258] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'gcp_ingest_yellow_taxi', 'remove_old_files_task', 'scheduled__2019-02-02T05:00:00+00:00', '--job-id', '554', '--raw', '--subdir', 'DAGS_FOLDER/dag_***_gcp_yellow_taxi.py', '--cfg-path', '/tmp/tmp7abbe9xy', '--error-file', '/tmp/tmp_8l3ebcc']
+[2022-02-01 09:14:28,259] {standard_task_runner.py:77} INFO - Job 554: Subtask remove_old_files_task
+[2022-02-01 09:14:28,321] {logging_mixin.py:109} INFO - Running <TaskInstance: gcp_ingest_yellow_taxi.remove_old_files_task scheduled__2019-02-02T05:00:00+00:00 [running]> on host 78d49910abc7
+[2022-02-01 09:14:28,376] {logging_mixin.py:109} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:152 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2022-02-01 09:14:28,401] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=gcp_ingest_yellow_taxi
+AIRFLOW_CTX_TASK_ID=remove_old_files_task
+AIRFLOW_CTX_EXECUTION_DATE=2019-02-02T05:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2019-02-02T05:00:00+00:00
+[2022-02-01 09:14:28,404] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-02-01 09:14:28,406] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'rm /opt/***/yellow_taxi_output_2019-02.csv /opt/***/yellow_taxi_output_2019-02.parquet']
+[2022-02-01 09:14:28,421] {subprocess.py:85} INFO - Output:
+[2022-02-01 09:14:30,128] {subprocess.py:93} INFO - Command exited with return code 0
+[2022-02-01 09:14:30,157] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=gcp_ingest_yellow_taxi, task_id=remove_old_files_task, execution_date=20190202T050000, start_date=20220201T091428, end_date=20220201T091430
+[2022-02-01 09:14:30,201] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-02-01 09:14:30,234] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check
