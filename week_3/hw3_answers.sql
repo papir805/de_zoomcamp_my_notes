@@ -50,6 +50,8 @@ WHERE
 AND 
     dispatching_base_num IN ('B00987', 'B02060', 'B02279');
 
+--Answer Count: 26558, Estimated data processed: 400mb, actual data processed: 155mb
+
 -- Q5: What will be the best partitioning or clustering strategy when filtering 
 -- on dispatching_base_num and SR_Flag 
 
